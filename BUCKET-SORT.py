@@ -13,17 +13,18 @@ def BUCKET_SORT(A):
             C=C+b
     return C
 
-import random
-b = random.randint(1, 100)
-# b = 10
-l, r = random.randint(1, 2), random.randint(1, 1e2)
-if l > r:
-    l, r = r, l
-# A = [random.randint(l, r) for x in range(b)]
-A = [random.random() for x in range(b)]
+if __name__ == "__main__":
+    import random
+    b = random.randint(1, 100)
+    # b = 10
+    l, r = random.randint(1, 2), random.randint(1, 1e2)
+    if l > r:
+        l, r = r, l
+    # A = [random.randint(l, r) for x in range(b)]
+    A = [random.random() for x in range(b)]
 
-print(sorted(A))
+    print(sorted(A))
 
-B=sorted(A)
-print(BUCKET_SORT(A))
-print(A)
+    B=sorted(A)
+    print(BUCKET_SORT(A))
+    print(A)
