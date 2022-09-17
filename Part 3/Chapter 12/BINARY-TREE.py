@@ -12,7 +12,7 @@ def TREE_SEARCH(x,k):
     return TREE_SEARCH(x.right, k)
 
 def ITERATIVE_SEARCH(x,k):
-    while x!=None and K!=x.key:
+    while x!=None and k!=x.key:
         if k<x.key:
             x=x.left
         else:
