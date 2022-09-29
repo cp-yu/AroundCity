@@ -9,3 +9,5 @@ def ALLOCATE_OBJECT():
 def FREE_OBJECT(x):
     x.next=free
     free=x
+
+
