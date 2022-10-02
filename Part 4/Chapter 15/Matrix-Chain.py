@@ -35,3 +35,32 @@ def PRINT_OPTIMAL_PARENS(s,i,j):
         PRINT_OPTIMAL_PARENS(s,i,s[i,j])
         PRINT_OPTIMAL_PARENS(s,s[i,j]+1,j)
         print(")")
+
+
+def RECURSIVE_MATRIX_CHAIN(p,i,j):
+    if i==j:
+        return 0
+    m=float("inf")
+    for k in range(i,j):
+        q=RECURSIVE_MATRIX_CHAIN(p,i,k)+RECURSIVE_MATRIX_CHAIN(p,k+1,j)+p[i-2]*p[k-1]*p[j-1]
+        if q<m:
+            m=q
+    return m
+
+
+def MEMOIZED_MATRIX_CHAIN(p):
+    n=len(p)-1
+    m=[[float("inf")]*n for _ in range(n)]
+    return LOOKUP_CHAIN(m,p,1,n)
+
+def LOOKUP_CHAIN(m,p,i,j):
+    if m[i,j]<float("inf"):
+        return m[i,j]
+    if i==j:
+        m[i,j]=0
+    else:
+        for k in range(i,j):
+            q=LOOKUP_CHAIN(m,p,i,k)+LOOKUP_CHAIN(m,p,k+1,j)+p[i-2]*p[k-1]*p[j-1]
+            if q<m[i,j]:
+                m[i,j]=q
+    return m[i,j]
